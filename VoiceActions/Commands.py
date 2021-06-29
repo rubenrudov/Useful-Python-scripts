@@ -25,7 +25,7 @@ def say(text, FILE_COUNT):
     text_to_speech = gTTS(text=text, lang='en')
     text_to_speech.save(f'audio{FILE_COUNT}.mp3')
     playsound.playsound(f'audio{FILE_COUNT}.mp3')
-    print(os.remove(f'audio{FILE_COUNT}.mp3'))
+    os.remove(f'audio{FILE_COUNT}.mp3')
 
 
 class CommandListener:
@@ -55,16 +55,18 @@ class CommandListener:
 
                 elif query == "stop":
                     # For turning of the listening system
-                    say("Not gonna happen...", self.get_count())
+                    say("Shutting down voice assistant", self.get_count())
+                    # FIXME: Add some normal shut down speech ...
                     return False
 
-                elif query == "mute responses":
+                elif query == "mute":
                     self.tts_mute = True
 
-                elif str(query).replace(" ", "") == "unmuteresponse":
+                elif str(query).replace(" ", "") == "unmute":
                     self.tts_mute = False
 
                 # TODO: Add more voice commands for the system
+                #  that contains real-life actions like move forward (and then control with Rpi)
 
                 else:
                     print("Command not in the commands list")

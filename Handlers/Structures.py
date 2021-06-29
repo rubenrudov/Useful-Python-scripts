@@ -1,6 +1,6 @@
 """
-Original author: Adam Livne
-Edited by: Ruben Rudov
+Original author of the modules: Adam Livne
+Used & Edited (with permission) by: Ruben Rudov
 """
 from enum import Enum, unique
 

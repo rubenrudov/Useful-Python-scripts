@@ -1,3 +1,7 @@
+"""
+Original author: Adam Livne
+Edited by: Ruben Rudov
+"""
 from enum import Enum, unique
 
 
@@ -9,9 +13,10 @@ class PrintForm(Enum):
     NO_PRINT = 3  # don't print
 
     def __str__(self):
-        return "PRINT_BRACKETS: {\nPRINT_DICT: dict {\nPRINT_ARROWS: <class 'dict'>\nNO_PRINT: nothing"
+        return "Form Printing"
 
     def get_value(self):
+        # Getting a tuple of key, value
         return self.name, self.value
 
     @classmethod
@@ -63,7 +68,7 @@ class DataTypesHandler:
             print(print_string)
 
     @staticmethod
-    def matrix_to_dict(matrix: list, schema: (list, tuple) = None) -> dict:
+    def matrix_to_dict(matrix: list, schema: (list, tuple) = None):
         """
         converts a matrix to a dictionary
         :param schema :type list[str]: a list of strings containing the column names
@@ -77,8 +82,8 @@ class DataTypesHandler:
             for row in matrix:
                 for i in range(0, len(schema)):
                     dictionary[f"{schema[i]} row {str(rowCount)} item {i}"] = row[i]
-                # for colomn in schema:
-                #     dictionary[f"{colomn} row {str(rowCount)}"] = row.pop()
+                # for column in schema:
+                #     dictionary[f"{column} row {str(rowCount)}"] = row.pop()
                 rowCount += 1
         else:
             for row in matrix:

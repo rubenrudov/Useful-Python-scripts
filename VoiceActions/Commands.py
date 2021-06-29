@@ -13,22 +13,20 @@ import playsound
 RECOGNIZER = sr.Recognizer()
 
 
-# TODO: Add TTS for program responding
-
-
-def say(text, FILE_COUNT):
+def say(text, file_count):
     """
-    :param FILE_COUNT:
+    :param file_count: integer number of files that was created in this run of the program
     :param text: str that contains the proffered voice output
     :return: None
     """
     text_to_speech = gTTS(text=text, lang='en')
-    text_to_speech.save(f'audio{FILE_COUNT}.mp3')
-    playsound.playsound(f'audio{FILE_COUNT}.mp3')
-    os.remove(f'audio{FILE_COUNT}.mp3')
+    text_to_speech.save(f'audio{file_count}.mp3')
+    playsound.playsound(f'audio{file_count}.mp3')
+    os.remove(f'audio{file_count}.mp3')
 
 
 class CommandListener:
+
     def __init__(self, count):
         self.recognizer = RECOGNIZER
         self.command = "DEFAULT"

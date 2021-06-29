@@ -5,7 +5,7 @@ Purpose: Trying some location tracks and its uses
 """
 
 from Handlers.Structures import DataTypesHandler
-from VoiceActions.Commands import say
+from Handlers.ColoredStrings import Colors
 import requests
 import json
 
@@ -19,9 +19,9 @@ def get_data():
 
 def main():
     data = get_data()
-    data["ipName"] = "XXX.XXX.XXX.XXX/X"
-    data["query"] = "XXX.XXX.XXX.XXX/X"
-    data["ipType"] = "IP type is censored"
+    data["ipName"] = f"{Colors.FAIL}XXX.XXX.XXX.XXX/X{Colors.END}"
+    data["query"] = f"{Colors.FAIL}XXX.XXX.XXX.XXX/X{Colors.END}"
+    data["ipType"] = f"{Colors.FAIL}IP type is censored{Colors.END}"
     DataTypesHandler.print_data_recursively(data)
     print("\n")
 

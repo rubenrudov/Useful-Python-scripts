@@ -1,5 +1,5 @@
 """
-Original author of the modules: Adam Livne
+Original author of the module: Adam Livne
 Used & Edited (with permission) by: Ruben Rudov
 """
 from enum import Enum, unique
